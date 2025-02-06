@@ -55,7 +55,9 @@ public ResponseEntity<?> user(){
 		
 	}
 
-	
+	/*
+	* for user signin in account.
+	*/
 	@PostMapping("/signIn")
 	public ResponseEntity<?> login(@RequestBody LoginRequest req){
 			
@@ -67,9 +69,6 @@ public ResponseEntity<?> user(){
 		SecurityContextHolder.getContext().setAuthentication(auth);
 		log.info("stored in Context......");
 		UserDetails userDetails = (UserDetails)auth.getPrincipal();
-		
-//		List<String> roles = new ArrayList<String>();
-//		userDetails.getAuthorities().forEach(ath->roles.add(ath.getAuthority()));
 		
 		List<String> roles = userDetails.getAuthorities().stream().map(ath->ath.getAuthority()).toList();
 		log.info("roles of usess is "+ roles);
