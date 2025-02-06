@@ -31,7 +31,7 @@ public class JWTUtils {
 		
 		return Jwts.builder().setSubject(userDetails.getUsername())
 					.setIssuedAt(new Date(System.currentTimeMillis()))
-					.setExpiration(new Date(System.currentTimeMillis()+ 10000 * 60 * 5))
+					.setExpiration(new Date(System.currentTimeMillis()+ 10000 * 60 * 4))
 					.signWith(key())
 					.compact();
 		
